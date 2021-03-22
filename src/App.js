@@ -21,15 +21,15 @@ const items = [
 // "Database" sending PROP to Dropdown
 const options = [
     {
-        label: 'The Color Red',
+        label: 'Slovensko',
         value: 'red'
     },
     {
-        label: 'The Color Green',
+        label: 'Cesko',
         value: 'green'
     },
     {
-        label: 'A Shade of Blue',
+        label: 'Nemecko',
         value: 'blue'
     }
 ]

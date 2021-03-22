@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // ({ destructing options object})
 const Dropdown = ({ options, selected, onSelectedChange }) => {
     const [open, setOpen] = useState(false);
 
+    useEffect(() => {
+        document.body.addEventListener('click', () => {
+            console.log('CLICK!!!')
+        })
+    }, []);
     
 
     const renderedOptions = options.map((option) => {
@@ -34,7 +39,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
                   >
                     <i className='dropdown icon' ></i>
                     <div className='text'>{selected.label}</div>
-                    <div className='menu visible transition'>
+                    <div className={`menu ${ open ? 'visible transition' : ''}`}>
                         {renderedOptions}
                     </div>
                 </div>
