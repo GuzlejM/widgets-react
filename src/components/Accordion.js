@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 
+// useState Hook
 const Accordion = ({ items }) => {
     const[activeIndex, setActiveIndex] = useState(null);
 
+    // ON Click function returning index of and element in the Array
     const onTitleClick = (index) => {
         setActiveIndex(index);
     };
 
+    // Mapping trough an array of Items "Database" Object from App.js .
+    //  
     const renderedItems = items.map((item, index) => {
+        // If index is equal to activeIndex then set 'active' class to an element ELSE '' (empty string)
         const active = index === activeIndex ? 'active' : '';
 
         return (
+            // Don't remeber what is React.Fragment
         <React.Fragment key={item.title}>
             <div 
                 className={`title ${active}`}
