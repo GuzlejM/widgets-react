@@ -6,14 +6,20 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     const ref = useRef()
 
     useEffect(() => {
-        document.body.addEventListener('click', (event) => {
-            if (ref.current && ref.current.contains(event.target)) {
-                return;
-            }
-            
-            setOpen(false);
-        }, { capture: true });
-    }, []);
+        const onBodyClick = (event) => {
+         if (ref.current && ref.current.contains(event.target)) {
+            return;
+          }
+     
+          setOpen(false);
+        };
+     
+        document.body.addEventListener('click', onBodyClick, { capture: true });
+     
+        return () => {
+          document.body.removeEventListener('click', onBodyClick, { capture: true });
+        };
+      }, []);
     
 
     // Renders list of items
@@ -28,7 +34,6 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
              key={option.value} 
              className='item'
              onClick={() => {
-                 console.log('ITEM CLICKED!')
                  onSelectedChange(option)
                 }}
             >
@@ -43,7 +48,6 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
                 <label className='label'>Select a Color</label>
                 <div 
                   onClick={() => {
-                      console.log('DROPDOW CLICKED!')
                       setOpen(!open)
                     }} 
                   /** if open = true, show classes. else do not show and show empy string */
