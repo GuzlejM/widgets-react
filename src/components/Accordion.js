@@ -10,13 +10,13 @@ const Accordion = ({ items }) => {
     };
 
     // Mapping trough an array of Items "Database" Object from App.js .
-    //  
+    // item parameter is passed to markup(JSX)
     const renderedItems = items.map((item, index) => {
         // If index is equal to activeIndex then set 'active' class to an element ELSE '' (empty string)
         const active = index === activeIndex ? 'active' : '';
 
         return (
-            // Don't remeber what is React.Fragment
+            // React fragment is just a "wrapper" instead of divs
         <React.Fragment key={item.title}>
             <div 
                 className={`title ${active}`}
