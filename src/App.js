@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
+import Translate from './components/Translate';
 
 // "Database" items for Accordion which is sent as PROP
 const items = [
@@ -34,23 +35,25 @@ const options = [
     }
 ]
 
-// Renderin template
-export default () => {
-    // Passing down as PROP selected, 
-    const [selected, setSelected] = useState(options[0]);
-    const [showDropdown, setShowDropdown] = useState(true);
+const options = [
+    {
+      label: 'The Color Red',
+      value: 'red',
+    },
+    {
+      label: 'The Color Green',
+      value: 'green',
+    },
+    {
+      label: 'A Shade of Blue',
+      value: 'blue',
+    },
+  ];
+  
+  export default () => {
     return (
-        <React.Fragment>
-            <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
-            {showDropdown ?
-                <Dropdown 
-                selected={selected}
-                /** Passing as a PROP onSelectedChange */
-                onSelectedChange={setSelected}
-                options={options}
-                /> : null
-            }
-
-        </React.Fragment>
+      <div>
+        <Translate />
+      </div>
     );
-};
+  };

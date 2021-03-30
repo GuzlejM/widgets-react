@@ -13,7 +13,8 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
      
           setOpen(false);
         };
-     
+        
+        // Adding and removing dropdown 'TOGGLE DROPDOWN' feature
         document.body.addEventListener('click', onBodyClick, { capture: true });
      
         return () => {
@@ -50,7 +51,8 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
                   onClick={() => {
                       setOpen(!open)
                     }} 
-                  /** if open = true, show classes. else do not show and show empy string */
+                  /** if open = true, show classes 'visible active' 'visible transition' 
+                   * else do not show any class and show empty string */
                   className={`ui selection dropdown ${ open ? 'visible active' : ''}`}
                   >
                     <i className='dropdown icon' ></i>
@@ -60,6 +62,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
                     </div>
                 </div>
             </div>
+            <p style={{color:`${selected.value}`}}> Text color </p>
         </div>
     )
 };
