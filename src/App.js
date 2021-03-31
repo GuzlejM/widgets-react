@@ -19,21 +19,21 @@ const items = [
         content: 'Lorem ipsum may be used as'
     }
 ]
-// "Database" sending PROP to Dropdown
-const options = [
-    {
-        label: 'Slovensko',
-        value: 'red'
-    },
-    {
-        label: 'Cesko',
-        value: 'green'
-    },
-    {
-        label: 'Nemecko',
-        value: 'blue'
-    }
-]
+// // "Database" sending PROP to Dropdown
+// const options = [
+//     {
+//         label: 'Slovensko',
+//         value: 'red'
+//     },
+//     {
+//         label: 'Cesko',
+//         value: 'green'
+//     },
+//     {
+//         label: 'Nemecko',
+//         value: 'blue'
+//     }
+// ]
 
 const options = [
     {
