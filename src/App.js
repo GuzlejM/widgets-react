@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
+import Translate from './components/Translate';
+import Route from './components/Route';
+import Header from './components/Header';
 
 // "Database" items for Accordion which is sent as PROP
 const items = [
@@ -18,39 +21,60 @@ const items = [
         content: 'Lorem ipsum may be used as'
     }
 ]
-// "Database" sending PROP to Dropdown
+// // "Database" sending PROP to Dropdown
+// const options = [
+//     {
+//         label: 'Slovensko',
+//         value: 'red'
+//     },
+//     {
+//         label: 'Cesko',
+//         value: 'green'
+//     },
+//     {
+//         label: 'Nemecko',
+//         value: 'blue'
+//     }
+// ]
+
 const options = [
     {
-        label: 'Slovensko',
-        value: 'red'
+      label: 'The Color Red',
+      value: 'red',
     },
     {
-        label: 'Cesko',
-        value: 'green'
+      label: 'The Color Green',
+      value: 'green',
     },
     {
-        label: 'Nemecko',
-        value: 'blue'
-    }
-]
+      label: 'A Shade of Blue',
+      value: 'blue',
+    },
+  ];
 
-// Renderin template
-export default () => {
-    // Passing down as PROP selected, 
-    const [selected, setSelected] = useState(options[0]);
-    const [showDropdown, setShowDropdown] = useState(true);
+
+  export default () => {
+    const [selected, setSelected] = useState(options[0])
     return (
-        <React.Fragment>
-            <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
-            {showDropdown ?
-                <Dropdown 
-                selected={selected}
-                /** Passing as a PROP onSelectedChange */
-                onSelectedChange={setSelected}
-                options={options}
-                /> : null
-            }
-
-        </React.Fragment>
+      <div>
+        <Header />
+        <Route path='/'>
+          <Accordion items={items} />
+        </Route>
+        <Route path='/list'>
+          <Search />
+        </Route>
+        <Route path='/dropdown'>
+          <Dropdown 
+          label="Select a color"
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+          />
+        </Route>
+        <Route path='/translate'>
+          <Translate />
+        </Route>
+      </div>
     );
-};
+  };
